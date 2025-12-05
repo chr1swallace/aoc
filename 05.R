@@ -45,7 +45,7 @@ fresh=fresh - mn
 mn=mn - mn
 mx=mx - mn
 
-count(mn, mx, fresh)
+## count(mn, mx, fresh)
 
 ## too slow. try and be more elegant
 getfresh=function(inp) {
