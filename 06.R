@@ -24,8 +24,10 @@ f=function(test, test2) {
     ops=tail(test,1)  %>% as.vector()
     result=numeric(length(ops))
     for(i in seq_along(ops)) {
-        sub=a[,(w[i]+1):(w[i+1]-1), drop=FALSE]  %>% t()  %>% apply(., 1, paste, collapse="")  %>%
-            gsub("NA","",.)  %>% as.numeric()
+        sub=a[,(w[i]+1):(w[i+1]-1), drop=FALSE]  %>%
+            apply(., 2, paste, collapse="")  %>%
+            gsub("NA","",.)  %>%
+            as.numeric()
         result[i]=if(ops[i]=="+") sum(sub, na.rm=TRUE) else prod(sub, na.rm=TRUE)
     }
     sum(result)
